@@ -1,7 +1,9 @@
 import { beginAutoTracking, endAutoTracking, trackedData } from './-tracking';
 
+const CLASSIC_DECORATOR = Symbol('CLASSIC_DECORATOR');
+
 function tracked(_, key, descriptor) {
-  let { getter, setter } = trackedData(key, descriptor?.initializer);
+  let { getter, setter } = trackedData(key, descriptor.initializer);
   return {
     enumerable: true,
     configurable: true,
@@ -33,7 +35,6 @@ function autotrack(_, key, descriptor) {
 function dependentKeyCompat(target, key, descriptor) {
   let { compatGetter } = trackedData(key, descriptor.get);
   return autotrack(target, key, {
-    ...descriptor,
     enumerable: true,
     configurable: true,
     get() {
@@ -42,8 +43,24 @@ function dependentKeyCompat(target, key, descriptor) {
   });
 }
 
+function descriptorFactoryFor(classicDecoratorDescriptor) {
+  if (!(classicDecoratorDescriptor && classicDecoratorDescriptor[CLASSIC_DECORATOR])) {
+    return;
+  }
+  let { [CLASSIC_DECORATOR]: decorator, ...decoratorDescriptor } = classicDecoratorDescriptor;
+  return (target, key, descriptor) => {
+    return decorator(target, key, { ...descriptor, ...decoratorDescriptor });
+  };
+}
+
+function classicDecoratorFor(factoryFnRef, decoratorDescriptor) {
+  return { [CLASSIC_DECORATOR]: factoryFnRef, ...decoratorDescriptor };
+}
+
 export {
   autotrack,
+  classicDecoratorFor,
+  descriptorFactoryFor,
   dependentKeyCompat,
   tracked,
 };

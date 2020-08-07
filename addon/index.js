@@ -1,9 +1,9 @@
 export {
-  autotrack,
-  dependentKeyCompat,
-  tracked,
+  autotrackDecorator as autotrack,
+  dependentKeyCompatDecorator as dependentKeyCompat,
+  trackedDecorator as tracked,
 } from './-decorators';
 
-import { patchAutotrackObjectGetters } from './-object-patch';
+import { patchObjectGetters } from './-object-patch';
 
-patchAutotrackObjectGetters();
+patchObjectGetters();
