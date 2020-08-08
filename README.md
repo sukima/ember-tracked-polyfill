@@ -15,7 +15,7 @@ This is an attempt to bring the `@tracked` semantics we use in Octane to lower v
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.12 or above and *less than 3.14*
+* Ember.js v3.1 or above and *less than 3.14*
 * Ember CLI v2.13 or above
 * Node.js v10 or above
 
