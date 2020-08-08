@@ -1,3 +1,32 @@
-<h2 id="title">Welcome to Ember</h2>
+<div class="[ container ]">
 
-{{outlet}}
+  <button
+    type="button"
+    class="[ main-control ] [ btn ] [ primary ]"
+    {{on "click" this.testIt}}
+  >
+    <code>this.appName = 'BARFOO'</code>
+  </button>
+
+  <dl class="[ debug-output ] [ grid-list ] [ info ]">
+
+    <dt>Direct access</dt>
+    <dd><samp>{{this.testTracked}}</samp></dd>
+
+    <dt>Autotracked getter</dt>
+    <dd><samp>{{this.fancy}}</samp></dd>
+
+    <dt>Computed with dependancy</dt>
+    <dd><samp>{{this.computedFancy}}</samp></dd>
+
+    <dt>Computed through autotracked getter</dt>
+    <dd><samp>{{this.computedFancyCombined}}</samp></dd>
+
+    <dt>Observer call count</dt>
+    <dd><samp>{{this.observerCallCount}}</samp></dd>
+
+  </dl>
+
+  {{outlet}}
+
+</div>

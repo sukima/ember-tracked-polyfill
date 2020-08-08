@@ -1,0 +1,83 @@
+:root {
+  --base-bg-color: white;
+  --base-fg-color: black;
+  --primary-color: lightskyblue;
+  --secondary-color: lavender;
+  --dimmed-color: gainsboro;
+  --info-color: lightblue;
+  --success-color: palegreen;
+  --warning-color: orange;
+  --danger-color: orangered;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  font-size: 14pt;
+  background-color: var(--base-bg-color);
+  color: var(--base-fg-color);
+}
+
+.container {
+  max-width: 60ch;
+}
+
+.btn {
+  font-size: 1rem;
+  background-color: var(--dimmed-color);
+  border: solid thin currentColor;
+  box-shadow: 1px 1px 2px #666;
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  border-radius: 6px;
+}
+
+.btn:active {
+  box-shadow: none;
+  transform: translate(1px, 1px);
+}
+
+.grid-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 1rem 0.5rem;
+  place-items: center start;
+}
+
+.grid-list dt {
+  max-width: 18ch;
+}
+
+.grid-list dd {
+  margin: 0;
+}
+
+.debug-output {
+  border: solid thin currentColor;
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  border-radius: 4px;
+}
+
+.info {
+  background-color: var(--info-color);
+}
+
+.primary {
+  background-color: var(--primary-color);
+}
+
+.secondary {
+  background-color: var(--secondary-color);
+}
+
+.success {
+  background-color: var(--success-color);
+}
+
+.warning {
+  background-color: var(--warning-color);
+}
+
+.danger {
+  background-color: var(--danger-color);
+}
