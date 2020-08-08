@@ -1,0 +1,9 @@
+{{! template-lint-disable no-action }}
+{{yield (hash
+  testTracked=this.testTracked
+  autotrackedGetter=this.autotrackedGetter
+  computedDependencyGetter=this.computedDependencyGetter
+  computedDependentKeyCompatGetter=this.computedDependentKeyCompatGetter
+  update=(action "update" value="target.value")
+)}}
+{{! template-lint-enable no-action }}
