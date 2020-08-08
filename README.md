@@ -89,12 +89,14 @@ export default MyComponent extends Component {
 
 Because this polyfill lives at the EmberObject level and _not_ in the Glimmer-VM it requires every getter to be wrapped to take advantage of the autotracking system. By default the `ember-tracked-polyfill.autotracking` is true. Which means it will patch EmberObject for you.
 
-If however, one wishes to avoid this it can be turned off by adding the following to your apps'/addons' `config/environment`:
+If however, one wishes to avoid this it can be turned off by adding the following to your apps'/addons' `ember-cli-build.js`:
 
 ```json
-ENV['ember-tracked-polyfill']: {
-  autotracking: false
-};
+let app = new EmberApp(defaults, {
+  'ember-tracked-polyfill': {
+    autotracking: false
+  }
+});
 ```
 
 This will then require you to *opt-in* to autotracking by means of the `@autotrack` decorator.
