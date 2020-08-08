@@ -91,7 +91,7 @@ Because this polyfill lives at the EmberObject level and _not_ in the Glimmer-VM
 
 If however, one wishes to avoid this it can be turned off by adding the following to your apps'/addons' `ember-cli-build.js`:
 
-```json
+```js
 let app = new EmberApp(defaults, {
   'ember-tracked-polyfill': {
     autotracking: false
